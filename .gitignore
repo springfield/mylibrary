@@ -1,0 +1,6 @@
+
+server/node_modules/
+server/public/
+angular/.tmp/
+angular/node_modules/
+angular/bowe_components/
