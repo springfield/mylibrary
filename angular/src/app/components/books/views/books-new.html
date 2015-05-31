@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add book</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="ctrl.book.title">
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" placeholder="Author" ng-model="ctrl.book.author">
+      </div>
+      <div class="form-group">
+        <label>
+          Read? <input type="checkbox" ng-model="ctrl.book.read" ng-true-value="1" ng-false-value="0">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="pages">No. of pages</label>
+        <input type="number" class="form-control" id="pages" ng-model="ctrl.book.pages">
+      </div>
+      <a href="#" ng-click="ctrl.reset()">Reset</a>
+      <button type="submit" class="btn btn-success" ng-click="ctrl.save()">Save</button>
+    </form>
+  </div>
+</div>
