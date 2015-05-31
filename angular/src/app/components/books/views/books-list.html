@@ -32,7 +32,7 @@
       <td>{{book.pages}}</td>
       <td><span class="glyphicon" ng-class="ctrl.bookReadClass(book)" aria-hidden="true"></span></td>
       <td>
-
+        <a ui-sref="edit({ bookId: book.id })">edit</a>
       </td>
     </tr>
   </table>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mylibrary.books.controllers.new', [])
-  .controller('BooksNewController', [function() {
+  .controller('BooksNewController', ['Book', function(Book) {
     var self = this;
 
     self.reset = function() {
@@ -9,9 +9,10 @@ angular.module('mylibrary.books.controllers.new', [])
     };
 
     self.save = function() {
-      self.book.id = self.books.length + 1;
-      self.books.push(self.book);
-      self.reset();
+      Book.createNew(self.book).then(function(book) {
+        self.books.push(book);
+        self.reset();
+      });
     };
 
     self.reset();

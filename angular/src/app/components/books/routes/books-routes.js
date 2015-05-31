@@ -9,7 +9,23 @@ angular.module('mylibrary.books.routes', [
         url: '/',
         templateUrl: 'app/components/books/views/books-home.html',
         controller: 'BooksHomeController',
-        controllerAs: 'ctrl'
+        controllerAs: 'ctrl',
+        resolve: {
+          books: function(Book) {
+            return Book.query().$promise;
+          }
+        }
+      })
+      .state('edit', {
+        url: '/books/:bookId/edit',
+        templateUrl: 'app/components/books/views/books-edit.html',
+        controller: 'BooksEditController',
+        controllerAs: 'ctrl',
+        resolve: {
+          book: function($stateParams, Book) {
+            return Book.get({bookId: $stateParams.bookId}).$promise;
+          }
+        }
       });
 
       $urlRouterProvider.otherwise('/');

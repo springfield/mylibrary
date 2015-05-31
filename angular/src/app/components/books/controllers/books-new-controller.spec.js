@@ -5,8 +5,20 @@ describe('BooksNewController', function() {
 
   beforeEach(function() {
     module('mylibrary.books.controllers.new');
-    inject(function($controller) {
+    module('mylibrary.books.services');
+    module('ngResource');
+    inject(function($controller, $q, Book) {
       ctrl = $controller('BooksNewController');
+
+      var deferred = $q.defer();
+      deferred.resolve({
+        id: 1,
+        title: 't1',
+        author: 'a1',
+        read: true,
+        pages: 100
+      });
+      spyOn(Book, 'createNew').and.returnValue(deferred.promise);
     });
   });
 
