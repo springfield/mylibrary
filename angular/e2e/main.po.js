@@ -5,11 +5,10 @@
 
 'use strict';
 
-var MainPage = function() { 
-  this.jumbEl = element(by.css('.jumbotron'));
-  this.h1El = this.jumbEl.element(by.css('h1'));
-  this.imgEl = this.jumbEl.element(by.css('img'));
-  this.thumbnailEls = element(by.css('body')).all(by.repeater('awesomeThing in awesomeThings'));
+var MainPage = function() {
+  this.jumbotron = element(by.css('.jumbotron'));
+  this.h1 = this.jumbotron.element(by.css('h1'));
+  this.books = element(by.css('body')).all(by.repeater('book in ctrl.books'));
 };
 
 module.exports = new MainPage();
